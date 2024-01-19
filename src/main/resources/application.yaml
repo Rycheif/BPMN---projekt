@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:bpmn;INIT=CREATE SCHEMA IF NOT EXISTS bpmn_projekt
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+
+zeebe.client:
+  cloud:
+    region: bru-2
+    clusterId: b463bfae-7044-42f7-bbc9-458b04d14fb4
+    clientId: CU9n5nO6lCC5avgDN4Nnt8n3MVDGskrH
+    clientSecret: y-G56VcogBJ8gRIPhjvpvZjmoA.hoehDYs_.C6tVO-hS3Vbd-NFnDxEwQ.mq3iP4

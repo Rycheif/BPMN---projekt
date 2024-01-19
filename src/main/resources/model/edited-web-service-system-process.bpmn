@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:signavio="http://www.signavio.com" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="sid-ebee227c-c12b-49f9-939d-902e9cb3addb" targetNamespace="http://www.signavio.com" expressionLanguage="http://www.w3.org/TR/XPath" exporter="Camunda Web Modeler" exporterVersion="ceb2fc3" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd" camunda:diagramRelationId="82b2d8e9-93a6-43a8-b0e7-c185ab971595">
+  <message id="sid-410c675a-8409-40e0-9895-a8c7f21b1908" name="authRequestMessage">
+    <extensionElements>
+      <zeebe:subscription correlationKey="=authProcessId" />
+    </extensionElements>
+  </message>
+  <message id="sid-f02c8d26-9b7f-48aa-b9fb-238bb53580b3" name="membershipRequestMessage" />
+  <message id="sid-433e9f7b-1d24-4b27-8b4e-55815f82fa69" name="loginRequestMessage">
+    <extensionElements>
+      <zeebe:subscription correlationKey="=authProcessId" />
+    </extensionElements>
+  </message>
+  <error id="sid-62fab108-d635-4e66-9f61-e5419e1d95db" />
+  <process id="auth-process" name="Login or register user" processType="None" isClosed="false" isExecutable="true">
+    <extensionElements>
+      <signavio:signavioDiagramMetaData metaKey="prozessreifegrad" metaValue="" />
+      <signavio:signavioDiagramMetaData metaKey="iso9000ff" metaValue="" />
+      <signavio:signavioDiagramMetaData metaKey="processgoal" metaValue="" />
+      <signavio:signavioDiagramMetaData metaKey="meta-processowner" metaValue="" />
+      <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="e59aa993108d4b6492cdc593061a6db5" />
+      <zeebe:userTaskForm id="UserTaskForm_17pbi29">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "42b7727"
+  },
+  "schemaVersion": 13,
+  "id": "RegistrationForm",
+  "components": [
+    {
+      "text": "### Registration Form",
+      "type": "text",
+      "id": "Heading_0",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_1",
+      "label": "Name",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 50,
+        "required": true
+      },
+      "key": "name",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_2",
+      "label": "Email",
+      "validate": {
+        "minLength": 6,
+        "maxLength": 100,
+        "required": true
+      },
+      "key": "email",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_3",
+      "label": "Password",
+      "validate": {
+        "minLength": 8,
+        "maxLength": 20,
+        "required": true
+      },
+      "key": "password",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="UserTaskForm_1bcjpt7">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "ceb2fc3"
+  },
+  "schemaVersion": 13,
+  "id": "LoginForm",
+  "components": [
+    {
+      "label": "Email",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1681jx8",
+        "columns": null
+      },
+      "id": "Field_15b1qzr",
+      "key": "email",
+      "description": "Please enter your email address",
+      "validate": {
+        "validationType": "email",
+        "required": true
+      }
+    },
+    {
+      "label": "Password",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0s5ww9c",
+        "columns": null
+      },
+      "id": "Field_0uv5gzd",
+      "key": "password",
+      "description": "Please enter password to your account",
+      "validate": {
+        "required": true
+      },
+      "appearance": { },
+      "properties": { }
+    }
+  ],
+  "type": "default"
+}</zeebe:userTaskForm>
+    </extensionElements>
+    <exclusiveGateway id="sid-B2EB6D13-34BB-469D-8756-4F183DFD8D9C" name="Is data correct?&#10;" gatewayDirection="Diverging">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </extensionElements>
+      <incoming>Flow_0vq7mc5</incoming>
+      <outgoing>sid-F58DC8EF-A634-4820-8B11-27118C1B4EAB</outgoing>
+      <outgoing>sid-A5CCE6D8-5EC0-482E-9B18-E64FA60627B0</outgoing>
+    </exclusiveGateway>
+    <sendTask id="Activity_failLogin" name="Fail login" implementation="##WebService">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <signavio:signavioMetaData metaKey="wirdkonsultiert" metaValue="" />
+        <signavio:signavioMetaData metaKey="externaldocuments" metaValue="" />
+        <signavio:signavioMetaData metaKey="wirdinformiert" metaValue="" />
+        <zeebe:taskDefinition type="fail-login" />
+      </extensionElements>
+      <incoming>sid-F58DC8EF-A634-4820-8B11-27118C1B4EAB</incoming>
+      <outgoing>sid-CA7BB2C9-4237-4247-A4E8-CD51C43AB64A</outgoing>
+    </sendTask>
+    <endEvent id="Event_LoginFailed" name="Login failed">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <signavio:signavioMetaData metaKey="nachfolgerprozesse" metaValue="" />
+      </extensionElements>
+      <incoming>sid-CA7BB2C9-4237-4247-A4E8-CD51C43AB64A</incoming>
+    </endEvent>
+    <sendTask id="Activity_completeLogin" name="Complete login" implementation="##WebService">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <signavio:signavioMetaData metaKey="wirdkonsultiert" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="externaldocuments" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="wirdinformiert" metaValue="[]" />
+        <zeebe:taskDefinition type="complete-login" />
+      </extensionElements>
+      <incoming>sid-A5CCE6D8-5EC0-482E-9B18-E64FA60627B0</incoming>
+      <outgoing>sid-49C72E80-883D-4635-97DB-1C9F3BBC8287</outgoing>
+    </sendTask>
+    <endEvent id="Event_LoginSucceed" name="Login succeed">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <signavio:signavioMetaData metaKey="nachfolgerprozesse" metaValue="[]" />
+      </extensionElements>
+      <incoming>sid-49C72E80-883D-4635-97DB-1C9F3BBC8287</incoming>
+    </endEvent>
+    <boundaryEvent id="sid-BDF26D07-420F-44A7-B01B-83DED05B9683" name="Registration error" attachedToRef="Activity_createAccount">
+      <outgoing>sid-E23CDEF0-61E3-4483-851A-21B8DD537EA0</outgoing>
+      <errorEventDefinition id="sid-88ef1b34-64c3-4ee1-bbda-52b569a75dc2" errorRef="Error_0f4ahzc" />
+    </boundaryEvent>
+    <sendTask id="Activity_completeRegistration" name="Complete registration" implementation="##WebService">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <signavio:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <signavio:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <signavio:signavioMetaData metaKey="wirdkonsultiert" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="externaldocuments" metaValue="[]" />
+        <signavio:signavioMetaData metaKey="wirdinformiert" metaValue="[]" />
+        <zeebe:taskDefinition type="complete-registration" />
+      </extensionElements>
+      <incoming>Flow_17mljur</incoming>
+      <outgoing>sid-7850B2D5-3328-46A4-85DF-26C82A405E08</outgoing>
+    </sendTask>
+    <endEvent id="Event_AccountCreated" name="Account created">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <signavio:signavioMetaData metaKey="nachfolgerprozesse" metaValue="[]" />
+      </extensionElements>
+      <incoming>sid-7850B2D5-3328-46A4-85DF-26C82A405E08</incoming>
+    </endEvent>
+    <endEvent id="sid-1F776DF0-F84D-49F8-B1FC-3F6C32348E5B" name="Registration failed">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <signavio:signavioMetaData metaKey="nachfolgerprozesse" metaValue="[]" />
+      </extensionElements>
+      <incoming>Flow_1wkm4i6</incoming>
+    </endEvent>
+    <sequenceFlow id="sid-CA7BB2C9-4237-4247-A4E8-CD51C43AB64A" name="" sourceRef="Activity_failLogin" targetRef="Event_LoginFailed">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-49C72E80-883D-4635-97DB-1C9F3BBC8287" name="" sourceRef="Activity_completeLogin" targetRef="Event_LoginSucceed">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-F58DC8EF-A634-4820-8B11-27118C1B4EAB" name="No" sourceRef="sid-B2EB6D13-34BB-469D-8756-4F183DFD8D9C" targetRef="Activity_failLogin">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </extensionElements>
+      <conditionExpression xsi:type="tFormalExpression">= error = true</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-A5CCE6D8-5EC0-482E-9B18-E64FA60627B0" name="Yes&#10;" sourceRef="sid-B2EB6D13-34BB-469D-8756-4F183DFD8D9C" targetRef="Activity_completeLogin">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </extensionElements>
+      <conditionExpression xsi:type="tFormalExpression">= error = false</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-7850B2D5-3328-46A4-85DF-26C82A405E08" name="" sourceRef="Activity_completeRegistration" targetRef="Event_AccountCreated">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="sid-E23CDEF0-61E3-4483-851A-21B8DD537EA0" name="" sourceRef="sid-BDF26D07-420F-44A7-B01B-83DED05B9683" targetRef="Activity_0arvhjm">
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </extensionElements>
+    </sequenceFlow>
+    <userTask id="Activity_provideLoginData" name="Provide login data">
+      <extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_1bcjpt7" />
+      </extensionElements>
+      <incoming>Flow_12cfbyd</incoming>
+      <outgoing>Flow_0wajbfo</outgoing>
+    </userTask>
+    <sequenceFlow id="Flow_0wajbfo" sourceRef="Activity_provideLoginData" targetRef="Activity_verifyLoginData" />
+    <userTask id="Activity_provideRegistrationData" name="Provide registration data">
+      <extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_17pbi29" />
+      </extensionElements>
+      <incoming>Flow_0oz7vn4</incoming>
+      <outgoing>Flow_0aluy5t</outgoing>
+    </userTask>
+    <sequenceFlow id="Flow_0aluy5t" sourceRef="Activity_provideRegistrationData" targetRef="Activity_createAccount" />
+    <serviceTask id="Activity_verifyLoginData" name="Verify login data">
+      <extensionElements>
+        <zeebe:taskDefinition type="verify-login-data" />
+      </extensionElements>
+      <incoming>Flow_0wajbfo</incoming>
+      <outgoing>Flow_0vq7mc5</outgoing>
+    </serviceTask>
+    <sequenceFlow id="Flow_0vq7mc5" sourceRef="Activity_verifyLoginData" targetRef="sid-B2EB6D13-34BB-469D-8756-4F183DFD8D9C" />
+    <serviceTask id="Activity_createAccount" name="Create user account">
+      <extensionElements>
+        <zeebe:taskDefinition type="create-account" />
+      </extensionElements>
+      <incoming>Flow_0aluy5t</incoming>
+      <outgoing>Flow_17mljur</outgoing>
+    </serviceTask>
+    <sequenceFlow id="Flow_17mljur" sourceRef="Activity_createAccount" targetRef="Activity_completeRegistration" />
+    <startEvent id="StartEvent_AuthStart" name="Auth start">
+      <outgoing>Flow_1vd3ttz</outgoing>
+      <messageEventDefinition id="MessageEventDefinition_1t8bodl" messageRef="sid-410c675a-8409-40e0-9895-a8c7f21b1908" />
+    </startEvent>
+    <exclusiveGateway id="Gateway_1vx1i0t" name="What user chose?">
+      <incoming>Flow_1vd3ttz</incoming>
+      <outgoing>Flow_12cfbyd</outgoing>
+      <outgoing>Flow_0oz7vn4</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="Flow_1vd3ttz" sourceRef="StartEvent_AuthStart" targetRef="Gateway_1vx1i0t" />
+    <sequenceFlow id="Flow_12cfbyd" sourceRef="Gateway_1vx1i0t" targetRef="Activity_provideLoginData">
+      <conditionExpression xsi:type="tFormalExpression">=action = "login"</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0oz7vn4" sourceRef="Gateway_1vx1i0t" targetRef="Activity_provideRegistrationData">
+      <conditionExpression xsi:type="tFormalExpression">=action = "register"</conditionExpression>
+    </sequenceFlow>
+    <sendTask id="Activity_0arvhjm" name="Fail registration" implementation="##WebService">
+      <extensionElements>
+        <zeebe:taskDefinition type="fail-registration" />
+      </extensionElements>
+      <incoming>sid-E23CDEF0-61E3-4483-851A-21B8DD537EA0</incoming>
+      <outgoing>Flow_1wkm4i6</outgoing>
+    </sendTask>
+    <sequenceFlow id="Flow_1wkm4i6" sourceRef="Activity_0arvhjm" targetRef="sid-1F776DF0-F84D-49F8-B1FC-3F6C32348E5B" />
+  </process>
+  <error id="Error_0f4ahzc" name="registrationFailedError" errorCode="registrationFailedError" />
+  <bpmndi:BPMNDiagram id="sid-8382c155-1119-4fb6-bb50-3b521e060838">
+    <bpmndi:BPMNPlane id="sid-fc835502-9d9e-41e5-b701-f699df6218b8" bpmnElement="auth-process">
+      <bpmndi:BPMNShape id="sid-B2EB6D13-34BB-469D-8756-4F183DFD8D9C_gui" bpmnElement="sid-B2EB6D13-34BB-469D-8756-4F183DFD8D9C" isMarkerVisible="true">
+        <omgdc:Bounds x="777" y="237" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="834" y="247" width="77" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-EF2F13C9-DEF6-47B9-BCC5-63E01567E5F3_gui" bpmnElement="Activity_failLogin">
+        <omgdc:Bounds x="920" y="84" width="100" height="80" />
+        <bpmndi:BPMNLabel labelStyle="sid-c16a0f89-5ec0-4803-b975-fd1839a42d9e">
+          <omgdc:Bounds x="946.8571434020996" y="116" width="46.28571319580078" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-7F0435CC-9690-48AD-942A-45A72FB19947_gui" bpmnElement="Event_LoginFailed">
+        <omgdc:Bounds x="1160" y="110" width="28" height="28" />
+        <bpmndi:BPMNLabel labelStyle="sid-efd42e2d-d7b7-4790-a98a-db370735342a">
+          <omgdc:Bounds x="1146" y="140" width="56" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-205CE7E7-BAFD-4EA4-972E-7D53540AF61A_gui" bpmnElement="Activity_completeLogin">
+        <omgdc:Bounds x="920" y="337" width="100" height="80" />
+        <bpmndi:BPMNLabel labelStyle="sid-c16a0f89-5ec0-4803-b975-fd1839a42d9e">
+          <omgdc:Bounds x="929.8857116699219" y="369" width="80.22857666015625" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-9EB231AE-B779-4FD8-A0E9-668A15CA0C7C_gui" bpmnElement="Event_LoginSucceed">
+        <omgdc:Bounds x="1160" y="363" width="28" height="28" />
+        <bpmndi:BPMNLabel labelStyle="sid-efd42e2d-d7b7-4790-a98a-db370735342a">
+          <omgdc:Bounds x="1138" y="393" width="72" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-00C66CD7-2715-4DDA-94E8-C69581446265_gui" bpmnElement="Activity_completeRegistration">
+        <omgdc:Bounds x="920" y="497" width="100" height="80" />
+        <bpmndi:BPMNLabel labelStyle="sid-c16a0f89-5ec0-4803-b975-fd1839a42d9e">
+          <omgdc:Bounds x="938.7571411132812" y="523" width="62.4857177734375" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-3B6470A1-1B4D-4128-BDAA-3A39FC1FEFE4_gui" bpmnElement="Event_AccountCreated">
+        <omgdc:Bounds x="1160" y="523" width="28" height="28" />
+        <bpmndi:BPMNLabel labelStyle="sid-efd42e2d-d7b7-4790-a98a-db370735342a">
+          <omgdc:Bounds x="1133" y="553" width="82" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-1F776DF0-F84D-49F8-B1FC-3F6C32348E5B_gui" bpmnElement="sid-1F776DF0-F84D-49F8-B1FC-3F6C32348E5B">
+        <omgdc:Bounds x="896" y="696" width="28" height="28" />
+        <bpmndi:BPMNLabel labelStyle="sid-efd42e2d-d7b7-4790-a98a-db370735342a">
+          <omgdc:Bounds x="867" y="726" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_03230lr_di" bpmnElement="Activity_provideLoginData">
+        <omgdc:Bounds x="400" y="217" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_17c0l49" bpmnElement="Activity_provideRegistrationData">
+        <omgdc:Bounds x="400" y="497" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0gpb73o_di" bpmnElement="Activity_verifyLoginData">
+        <omgdc:Bounds x="590" y="217" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1t4rs0a" bpmnElement="Activity_createAccount">
+        <omgdc:Bounds x="590" y="497" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0gkghit_di" bpmnElement="StartEvent_AuthStart">
+        <omgdc:Bounds x="162" y="382" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="156" y="425" width="49" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1vx1i0t_di" bpmnElement="Gateway_1vx1i0t" isMarkerVisible="true">
+        <omgdc:Bounds x="288" y="375" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="344" y="386" width="51" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1sijl75" bpmnElement="Activity_0arvhjm">
+        <omgdc:Bounds x="710" y="670" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="728.7571411132812" y="696" width="62.4857177734375" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-BDF26D07-420F-44A7-B01B-83DED05B9683_gui" bpmnElement="sid-BDF26D07-420F-44A7-B01B-83DED05B9683">
+        <omgdc:Bounds x="625" y="562" width="30" height="30" />
+        <bpmndi:BPMNLabel labelStyle="sid-efd42e2d-d7b7-4790-a98a-db370735342a">
+          <omgdc:Bounds x="662" y="597" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="sid-CA7BB2C9-4237-4247-A4E8-CD51C43AB64A_gui" bpmnElement="sid-CA7BB2C9-4237-4247-A4E8-CD51C43AB64A">
+        <omgdi:waypoint x="1020" y="123.56991660667194" />
+        <omgdi:waypoint x="1160" y="123.56991660667194" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sid-49C72E80-883D-4635-97DB-1C9F3BBC8287_gui" bpmnElement="sid-49C72E80-883D-4635-97DB-1C9F3BBC8287">
+        <omgdi:waypoint x="1020" y="376.88094108645805" />
+        <omgdi:waypoint x="1160" y="376.88094108645805" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sid-F58DC8EF-A634-4820-8B11-27118C1B4EAB_gui" bpmnElement="sid-F58DC8EF-A634-4820-8B11-27118C1B4EAB">
+        <omgdi:waypoint x="796.7523419824095" y="237.4873353620078" />
+        <omgdi:waypoint x="796.7523419824095" y="123.56991660667194" />
+        <omgdi:waypoint x="920" y="123.56991660667194" />
+        <bpmndi:BPMNLabel labelStyle="sid-efd42e2d-d7b7-4790-a98a-db370735342a">
+          <omgdc:Bounds x="776" y="215" width="14" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sid-A5CCE6D8-5EC0-482E-9B18-E64FA60627B0_gui" bpmnElement="sid-A5CCE6D8-5EC0-482E-9B18-E64FA60627B0">
+        <omgdi:waypoint x="796.7523419824095" y="277.4873353620078" />
+        <omgdi:waypoint x="796.7523419824095" y="376.88094108645805" />
+        <omgdi:waypoint x="920" y="376.88094108645805" />
+        <bpmndi:BPMNLabel labelStyle="sid-efd42e2d-d7b7-4790-a98a-db370735342a">
+          <omgdc:Bounds x="773" y="285" width="20" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sid-7850B2D5-3328-46A4-85DF-26C82A405E08_gui" bpmnElement="sid-7850B2D5-3328-46A4-85DF-26C82A405E08">
+        <omgdi:waypoint x="1020" y="537.3568700783012" />
+        <omgdi:waypoint x="1160" y="537.3568700783012" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sid-E23CDEF0-61E3-4483-851A-21B8DD537EA0_gui" bpmnElement="sid-E23CDEF0-61E3-4483-851A-21B8DD537EA0">
+        <omgdi:waypoint x="640" y="592" />
+        <omgdi:waypoint x="640" y="710" />
+        <omgdi:waypoint x="710" y="710" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wajbfo_di" bpmnElement="Flow_0wajbfo">
+        <omgdi:waypoint x="500" y="257" />
+        <omgdi:waypoint x="590" y="257" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0aluy5t_di" bpmnElement="Flow_0aluy5t">
+        <omgdi:waypoint x="500" y="537" />
+        <omgdi:waypoint x="590" y="537" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vq7mc5_di" bpmnElement="Flow_0vq7mc5">
+        <omgdi:waypoint x="690" y="257" />
+        <omgdi:waypoint x="778" y="258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17mljur_di" bpmnElement="Flow_17mljur">
+        <omgdi:waypoint x="690" y="537" />
+        <omgdi:waypoint x="920" y="537" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vd3ttz_di" bpmnElement="Flow_1vd3ttz">
+        <omgdi:waypoint x="198" y="400" />
+        <omgdi:waypoint x="288" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12cfbyd_di" bpmnElement="Flow_12cfbyd">
+        <omgdi:waypoint x="313" y="375" />
+        <omgdi:waypoint x="313" y="257" />
+        <omgdi:waypoint x="400" y="257" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0oz7vn4_di" bpmnElement="Flow_0oz7vn4">
+        <omgdi:waypoint x="313" y="425" />
+        <omgdi:waypoint x="313" y="537" />
+        <omgdi:waypoint x="400" y="537" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wkm4i6_di" bpmnElement="Flow_1wkm4i6">
+        <omgdi:waypoint x="810" y="710" />
+        <omgdi:waypoint x="896" y="710" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="sid-efd42e2d-d7b7-4790-a98a-db370735342a">
+      <omgdc:Font name="Arial" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="sid-c16a0f89-5ec0-4803-b975-fd1839a42d9e">
+      <omgdc:Font name="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</definitions>

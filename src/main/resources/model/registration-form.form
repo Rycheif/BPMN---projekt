@@ -1,0 +1,68 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "42b7727"
+  },
+  "schemaVersion": 13,
+  "id": "RegistrationForm",
+  "components": [
+    {
+      "text": "### Registration Form",
+      "type": "text",
+      "id": "Heading_0",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_1",
+      "label": "Name",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 50,
+        "required": true
+      },
+      "key": "name",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_2",
+      "label": "Email",
+      "validate": {
+        "minLength": 6,
+        "maxLength": 100,
+        "required": true
+      },
+      "key": "email",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_3",
+      "label": "Password",
+      "validate": {
+        "minLength": 8,
+        "maxLength": 20,
+        "required": true
+      },
+      "key": "password",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}

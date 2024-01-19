@@ -1,0 +1,47 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "42b7727"
+  },
+  "schemaVersion": 13,
+  "id": "Form_1fujibs",
+  "components": [
+    {
+      "values": [
+        {
+          "label": "Login",
+          "value": "login"
+        },
+        {
+          "label": "Register",
+          "value": "register"
+        }
+      ],
+      "label": "Choose action",
+      "type": "radio",
+      "layout": {
+        "row": "Row_07ce6l4",
+        "columns": null
+      },
+      "id": "Field_1gq2kfn",
+      "key": "action",
+      "defaultValue": "Login",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "action": "submit",
+      "label": "Choose",
+      "type": "button",
+      "layout": {
+        "row": "Row_15ianbz",
+        "columns": null
+      },
+      "id": "Field_12s3m6c"
+    }
+  ],
+  "type": "default"
+}
